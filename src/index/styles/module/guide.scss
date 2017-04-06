@@ -1,0 +1,230 @@
+/**
+ * Created by mm and ww 
+ */
+body {
+  &.guiding {
+    overflow: hidden;
+    .guide {
+      display: block;
+    }
+  }
+  .guide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, .5);
+      .modal-container {
+        width: 360px;
+        height: 413px;
+        background: #fff;
+        margin: 0 auto;
+        margin-top: 150px;
+        border-radius: 5px;
+        overflow: hidden;
+        position: relative;
+        .title {
+          width: 100%;
+          height: 32px;
+          line-height: 32px;
+          background-color: #e5e5e5;
+          text-align: center;
+          font-size: 12px;
+          color: #263137;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+        }
+        .content-container {
+          width: 100%;
+          height: 381px;
+          position: absolute;
+          > div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 100%;
+            top: 0;
+            span {
+              display: block;
+              text-align: center;
+              width: 100%;
+            }
+            > * {
+              position: absolute;
+              left: 100%;
+              animation-duration: .6s;
+            }
+            &.slide-appear {
+              left: 0;
+              > .in {
+                left: 0
+              }
+            }
+            &.slide-disappear {
+              > * {
+                transform: translateX(-100%);
+              }
+            }
+          }
+          /*店铺扫描*/
+          .scan-shop {
+            .scan-img {
+              height: 161px;
+              width: 100%;
+              text-align: center;
+              top: 50px;
+              > img {
+                width: 160px;
+                height: 160px;
+              }
+              .sanzi {
+                width: 114x;
+                height: 80px;
+                position: absolute;
+                left: 0;
+                right: 0;
+                opacity: .6;
+                top: 78px;
+                bottom: 0;
+                margin: auto;
+                img {
+                  width: 114px;
+                  height: 80px;
+                }
+              }
+            }
+            #scan-animated {
+              animation: sanmove 2s infinite linear;
+              transform-origin: center top;
+            }
+            @keyframes sanmove {
+              0% {
+                transform: rotate(0deg);
+              }
+              100% {
+                transform: rotate(360deg);
+              }
+            }
+            .scan-tips {
+              margin-top: 250px;
+              width: 100%;
+              h4 {
+                width: 100%;
+                text-align: center;
+                font-size: 12px;
+                color: #263137;
+                font-weight: normal;
+                margin-top: 10px;
+              }
+            }
+          }
+          /*诊断书*/
+          .diagnosis {
+            .diagnosis-img {
+              height: 46px;
+              width: 100%;
+              top: 30px;
+              text-align: center;
+              img {
+                width: 40px;
+                height: 46px;
+              }
+            }
+            .diagnosis-result {
+              width: 100%;
+              top: 90px;
+              h4 {
+                color: #263137;
+                font-size: 14px;
+                width: 100%;
+                text-align: center;
+                margin: 11px 0 0 0;
+              }
+              ul {
+                margin: 20px 0 0 86px;
+                li {
+                  height: 46px;
+                  width: 200px;
+                  border-bottom: 1px solid #E5E5E5;
+                  line-height: 46px;
+                  font-size: 12px;
+                  color: #263137;
+                  span {
+                    display: inline;
+                    text-align: left;
+                  }
+                }
+              }
+              button {
+                width: 200px;
+                height: 44px;
+                color: #fff;
+                line-height: 44px;
+                background: #83CCD2;
+                border: 0;
+                border-radius: 6px;
+                margin: 26px 0 0 86px;
+                font-size: 16px;
+                font-weight: bold;
+                   cursor: pointer;
+              }
+            }
+          }
+          /*导入*/
+          .import-product {
+            .import-img {
+              width: 100%;
+              height: 162px;
+              text-align: center;
+              top: 80px;
+              img {
+                width: 160px;
+                height: 100%;
+              }
+            }
+            h4 {
+              color: #324047;
+              font-weight: 400;
+              font-size: 14px;
+              text-align: center;
+              margin-top: 260px;
+              width: 100%;
+              text-align: center;
+            }
+            .nav-bullet{
+              width: 100%;
+              bottom: 30px;
+              &.pin{
+                left: 0;
+                transform: translateX(0);
+              }
+              ul{
+                width: 57px;
+                height: 9px;
+                margin: 0 auto;
+                li{
+                  float: left;
+                  width: 7px;
+                  height: 7px;
+                  background:#E5E5E5;
+                  border: 1px solid #E5E5E5;
+                  border-radius: 50%;
+                  margin-right: 10px;
+                }
+                .active{
+                  background:rgba(235,109,109,0.4);
+                  border: 1px solid #EB6D6D;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

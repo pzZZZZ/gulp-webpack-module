@@ -1,0 +1,212 @@
+<div class="index_header"><div class="box"><h1><img src="./images/hunchlogo.png" alt=""></h1><ul><li><a href="javascript:void(0)" onclick="location.reload()">首页</a></li>
+                <li><a href="/pages/p_desc.html">产品介绍</a></li>
+            </ul>
+            <div class="msgAndTime">
+                <script type="text/html" id="header_msg">
+                        <div class="header_time"><a href={{reorder_link}} target="_blank">立即续订 ({{ToOverDays}}天后到期)<span></span></a></div><div class="userMsg"><img src={{avatar_url}} alt="头像"><a href="javascript:void(0)" onclick="location.reload()">{{customer_nick}}</a></div>
+                </script>
+
+            </div>
+        </div>
+    </div>
+    <div class="indexTip">
+            <div class="box">
+                <script type="text/html" id="indexTip">
+                    <p><span class="notice_icon"></span>{{
+                    header_msg
+                    }}
+                <button class="close_icon" ></button>
+                </p>
+                </script>
+            </div>
+    </div>
+    <div class="dapeiData">
+        <div class="box">
+            <h2 class="itemNum">
+            </h2>
+            <div class="ScoreBox">
+                <div class="allScore">
+                    <h3><span>搭</span>配数据</h3>
+                    <h6>
+                        打败<span></span>%卖家
+                    </h6>
+                </div>
+                <div class="nowIcon">
+                <span>当前搭配覆盖率</span>
+                </div>
+                <div class="beforedapeiIcon">
+                <span>使用前搭配覆盖率</span>
+                </div>
+                <div class="shopNum">
+                    <ul class="dapeiDatalist">
+                    <script type="text/html" id="dapeilist">
+                        <li>昨日上新宝贝：<span>{{yday_num_online_products}}</span>件</li>
+                        <li>昨日上新搭配宝贝：<span>{{yday_num_online_outfitted_products}}</span>件</li>
+                        <li>昨日下架宝贝：<span>{{yday_num_offline_products}}</span>件</li>
+                        <li>下架后新搭配：<span>{{yday_num_offline_outfitted_products}}</span>件</li>
+                        <li class="time"><span></span><p>最近更新 {{updata_time_year}}/{{updata_time_mon}}/{{updata_time_day}} - {{updata_time_h}}:{{updata_time_min}}</p></li>
+                    </script>
+                
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+   <!--  CollScore -->
+    <div class="CollScore">
+        <div class="box">
+            <h2 class="itemNum">
+            </h2>
+            <div class="ScoreBox">
+                <div class="allScore">
+                    <h3><span>综</span>合评分</h3>
+                    <h6>
+                        打败<span></span>%卖家
+                    </h6>
+                </div>
+                <div class="ScoreIcon">
+                </div>
+                <div class="shopNum">
+                    <ul>
+                    <script type="text/html" id="Score_list">
+                        <li>本店在架商品： <span>{{num_online_products}}</span>件</li>
+                        <li>已采用搭配商品： <span>{{num_online_products-num_outfitted_products}}</span>件</li>
+                        <li>搭配商品在架率： <span>{{outfitted_percentage}}%</span></li>
+                       
+                    </script>
+
+                    </ul>
+                </div>
+                <div class="msg">
+                    <div class="msgBox">
+                        <ul>
+                            <script type="text/html" id="mgBoxList">
+                                <li>掌柜：<span>{{customer_nick}}</span></li>
+                                <li>当前版本：<span>{{version}}</span></li>
+                                <li>使用有效期：<span>{{expiration_date.slice(0,10)}}</span></li>
+                            </script>
+
+                        </ul>
+                    </div>
+                    <button class="btn_goon">立即续订</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="AiSystem">
+        <div class="box">
+            <div class="AiLeft">
+                <h2 class="itemNum"></h2>
+                <h3><span>智</span>能搭配</h3>
+                <script type="text/html" id="btn_tip">
+                    {{if outfitting_enabled}}
+                    <h6>智能搭配中...</h6>
+                    {{else}}
+                    <h6>首次开启智能搭配需要时间请耐心等待</h6>
+                    {{/if}}
+                </script>
+            </div>
+            <div class="AiBtn">
+                <script type="text/html" id="btn_click">
+                    {{if outfitting_enabled}}
+                    <img src="./images/switch_off.png">
+                    <h3 class="btnTitle">点击关闭智能搭配</h3>
+                    {{else}}
+                    <img src="./images/switch_on.png">
+                    <h3 class="btnTitle">点击开启智能搭配</h3>
+                    {{/if}}
+                </script>
+            </div>
+            <div class="AiAlert">
+                <div class="alert_title">
+                    注意事项
+                </div>
+                <p>开启智能搭配将自动对您店铺中每日上新的商品进行搭配，上新商品详情描述中将加入搭配展示，同时上新商品也将被其他商品引用至搭配中。</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal"><div class="loading"></div></div>
+    <div class="IEmodal"><div><img src="./images/loading.gif">数据加载中</div></div>
+    <!-- 弹窗模块 -->
+    <script type="text/html" id="alert-modal">
+        <div class="alert-modal">
+            <div class="alert-modal-box">
+                <div class="alert-title">{{title}} <div class="close-alert"><span>×</span></div></div>
+                <div class="alert-body"><p>{{content}}</p></div>
+                <div class="alert-footer">
+
+                        <button class="btn-sure">{{leftBtn}}</button><button class="btn-cancel">{{rightBtn}}</button>
+                </div>
+            </div>
+    </div>
+    </script>
+<div class="guide">
+    <div class="overlay">
+        <div class="modal-container">
+            <div class="title"></div>
+            <div class="content-container">
+                <!-- 扫描店铺 -->
+                <div class="scan-shop">
+                    <div class="scan-img">
+                        <img src="./images/leida.png" alt="">
+                        <div id="scan-animated" class="sanzi">
+                            <img src="./images/shan.png" alt="">
+                        </div>
+                    </div>
+                    <div class="scan-tips">
+                        <h4>店铺扫描商品中...</h4>
+                        <h4>店铺在架商品...</h4>
+                        <h4>...</h4>
+                    </div>
+                </div>
+                <!-- 诊断书 -->
+                <div class="diagnosis">
+                    <div class="diagnosis-img">
+                        <img src="./images/dapei2.png" alt="">
+                    </div>
+                    <div class="diagnosis-result">
+                        <h4>您店铺当前的搭配状态：</h4>
+                        <ul class="diagnosis-detail-box">
+                            <script type="text/html" id="diagnosis-detail">
+                                <li>本店在架商品： <span>{{num_online_products}}件</span></li>
+                                <li>在架商品搭配覆盖率： <span>{{outfitted_percentage}}%</span></li>
+                                <li>搭配商品失效率： <span>{{num_outfitted_products_percentage}}%</span></li>
+                            </script>
+                        </ul>
+                        <button type="button" name="button" class="next-start">立即启用智能搭配</button>
+                    </div>
+                </div>
+
+                <!-- 开始导入 -->
+                <div class="import-product ip1">
+                    <div class="import-img">
+                        <img src="./images/startarrange.jpg" alt="">
+                    </div>
+                    <h4 class="txt">店铺商品导入...</h4>
+                    <div class="nav-bullet">
+                        <ul>
+                            <li class="active"></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 导入中 -->
+                <div class="import-product ip2">
+                    <div class="import-img">
+                        <img src="./images/dapeing.jpg" alt="">
+                    </div>
+                    <h4 class="txt">生成搭配...</h4>
+                </div>
+                <!-- 搭配成功 -->
+                <div class="import-product ip3">
+                    <div class="import-img">
+                        <img src="./images/dapeisuccess.jpg" alt="">
+                    </div>
+                    <h4 class="txt">恭喜你~&nbsp;智能搭配已成功开启</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

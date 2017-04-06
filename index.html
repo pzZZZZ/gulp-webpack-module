@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>慧穿搭</title>
+    <link rel="stylesheet" type="text/css" href="./build/prd/styles/libs/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="./build/prd/styles/libs/reset.css">
+    <link rel="stylesheet" type="text/css" href="./build/prd/styles/app.css">
+</head>
+<body>
+<div class="main">
+
+</div>
+
+
+
+
+
+<script type="text/javascript" src='./build/prd/scripts/libs/jquery.min.js'></script> 
+<script type="text/javascript">
+var dev =1 ;
+    var guideEnable;
+      var addhtml = function(){
+         $('.main').eq(0).load('./temp/load1.html',function(){
+                 var osc = document.createElement('script');
+                osc.src='./build/prd/scripts/app.js';
+                $('body').eq(0).append(osc)
+            })
+    }
+    $.ajax('/dappei/get_customer_dashboard_stats/',{
+        type:'get',
+        dataType:'json',
+        success:function(res){
+            guideEnable = res.first_time_import;
+            addhtml();
+            
+        },
+        error:function(err){
+            console.log('接口错误');
+        }
+    })
+    // try{
+    //     if(dev){
+    //     guideEnable = true;
+    //     addhtml()
+    //     }
+    // }catch(e){
+      
+    // }
+    
+  
+    
+   
+</script>
+<script type="text/javascript" src='./build/prd/scripts/libs/arttemplate.js'></script>
+
+<script type="text/javascript" src='./build/prd/scripts/libs/countUp.min.js'></script>
+<script type="text/javascript" src='./build/prd/scripts/libs/radialIndicator.min.js'></script>
+<script src="./build/prd/scripts/libs/jquery.shCircleLoader-min.js"></script>
+
+
+
+</body>
+</html>
